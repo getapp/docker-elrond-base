@@ -53,4 +53,4 @@ ONBUILD ADD Gemfile.lock /app/Gemfile.lock
 ONBUILD RUN bundle install --without $BUNDLE_WITHOUT
 
 ONBUILD ADD . /app
-ONBUIDL WORKDIR /app
+ONBUILD WORKDIR /app
