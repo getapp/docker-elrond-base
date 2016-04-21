@@ -43,10 +43,6 @@ RUN wget https://github.com/kagux/go-remote-cli/releases/download/${REMOTE_CLI_V
 
 WORKDIR /app
 
-RUN chmod 755 /opt/*.sh /etc/profile.d/*.sh && \
-    chown -R www-data:www-data /app && \
-    mkdir /var/log/nginx
-
 ENTRYPOINT ["/opt/entrypoint.sh"]
 
 ONBUILD ADD package.json /app/package.json
