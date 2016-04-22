@@ -44,7 +44,6 @@ RUN wget https://github.com/kagux/go-remote-cli/releases/download/${REMOTE_CLI_V
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
 
-ONBUILD ADD . /app
 ONBUILD WORKDIR /app
 
 ONBUILD ADD package.json /app/package.json
@@ -54,3 +53,5 @@ ONBUILD ARG BUNDLE_WITHOUT='test development'
 ONBUILD ADD Gemfile /app/Gemfile
 ONBUILD ADD Gemfile.lock /app/Gemfile.lock
 ONBUILD RUN bundle install --without $BUNDLE_WITHOUT
+
+ONBUILD ADD . /app
