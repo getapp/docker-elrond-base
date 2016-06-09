@@ -22,7 +22,7 @@ RUN apt-get update && \
     htop
 
 # Install nvm with node and npm
-RUN curl -sL https://deb.nodesource.com/setup | bash		
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash		
 RUN apt-get -y install nodejs
 
 RUN apt-get clean && \
