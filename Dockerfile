@@ -36,7 +36,7 @@ RUN wget -q https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-
  && mv wait-for-it.sh /usr/local/bin/wait-for-it \
  && chmod +x /usr/local/bin/wait-for-it
 
-ENV REMOTE_CLI_VERSION 0.0.6
+ENV REMOTE_CLI_VERSION 0.0.7
 RUN wget https://github.com/kagux/go-remote-cli/releases/download/${REMOTE_CLI_VERSION}/linux-amd64-remote_cli.tar.bz2 \
     && tar -jxvf linux-amd64-remote_cli.tar.bz2 \
     && mv bin/linux/amd64/remote_cli /usr/local/bin/mahout
