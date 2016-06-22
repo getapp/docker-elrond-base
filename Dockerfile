@@ -41,6 +41,8 @@ RUN wget https://github.com/kagux/go-remote-cli/releases/download/${REMOTE_CLI_V
     && tar -jxvf linux-amd64-remote_cli.tar.bz2 \
     && mv bin/linux/amd64/remote_cli /usr/local/bin/mahout
 
+# https://github.com/bundler/bundler/issues/4576
+RUN gem update --system 2.6.1 && gem install bundler
 
 ENTRYPOINT ["/opt/entrypoint.sh"]
 
