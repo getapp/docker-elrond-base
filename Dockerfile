@@ -50,8 +50,9 @@ ONBUILD ADD package.json /app/package.json
 ONBUILD RUN npm set progress=false && npm install
 
 ONBUILD ARG BUNDLE_WITHOUT='test development'
+ONBUILD ARG BUNDLE_ARGS=''
 ONBUILD ADD Gemfile /app/Gemfile
 ONBUILD ADD Gemfile.lock /app/Gemfile.lock
-ONBUILD RUN bundle install --without $BUNDLE_WITHOUT
+ONBUILD RUN bundle install --without $BUNDLE_WITHOUT $BUNDLE_ARGS
 
 ONBUILD ADD . /app
