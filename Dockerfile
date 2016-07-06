@@ -49,7 +49,7 @@ ENTRYPOINT ["/opt/entrypoint.sh"]
 ONBUILD WORKDIR /app
 
 ONBUILD ADD package.json /app/package.json
-ONBUILD RUN npm set progress=false && npm install
+ONBUILD RUN npm set progress=false && npm install --registry='https://registry.npmjs.com'
 
 ONBUILD ARG BUNDLE_WITHOUT='test development'
 ONBUILD ARG BUNDLE_ARGS=''
