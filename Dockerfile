@@ -10,19 +10,22 @@ ENV MONGO_VERSION 3.2.4
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 \
  && echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 
+# install libssl1.0.0
+RUN wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb && \
+    dpkg -i libssl1.0.0_1.0.1t-1+deb8u11_amd64.deb
+
 RUN apt-get update && \
     apt-get -y install git-core \
     curl \
-    python-software-properties \
     software-properties-common \
     cron \
-    libmysqlclient-dev \
+    default-libmysqlclient-dev \
     mongodb-org-tools=$MONGO_VERSION \
     telnet \
     htop
 
 # Install nvm with node and npm
-RUN curl -sL https://deb.nodesource.com/setup_5.x | bash		
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash
 RUN apt-get -y install nodejs
 
 RUN apt-get clean && \
